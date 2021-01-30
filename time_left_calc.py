@@ -79,6 +79,15 @@ try:
 except ValueError:
     snack = 0
 
+# ask user how many hours and minutes of sleep the user needs per night
+try:
+    sleep_hours = int(input("Type in how many hours you sleep you need per night: (Enter an integer) "))
+    sleep_minutes = int(input("Type the remaining minutes you sleep you need per night: (Enter an integer) "))
+    total_time = total_time - ((int(sleep_hours))*60 + int(sleep_minutes))
+except ValueError:
+    sleep = 0
+    print("Do you even sleep?!")
+
 # ask to name any other commitments they have
 other_com = input("Are you going to do anything else today?: ")
 while (other_com == "yes" or other_com == "YES" or other_com == "yES" or other_com == "Yes"):
@@ -88,6 +97,7 @@ while (other_com == "yes" or other_com == "YES" or other_com == "yES" or other_c
     total_time = total_time - ((int(other_com_hours))*60 + int(other_com_minutes))
     other_com = input("Are you going to do anything else today?: ")
 
+# print the results
 if (total_time < 0):
     print("No more time")
 else:
