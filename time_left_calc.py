@@ -14,7 +14,7 @@ if (work == "yes" or work == "YES" or work == "yES" or work == "Yes"):
     total_time = total_time - ((int(work_hours))*60 + int(work_minutes))
 else:
     pass
-#total_time = repr(total_time) + str(" minutes remaining")
+print("")
 
 # ask user how many hours and minutes the user travels a day
 travel = input("Will you travel/commute anywhere today? ")
@@ -25,7 +25,7 @@ if (travel == "yes" or travel == "YES" or travel == "yES" or travel == "Yes"):
     total_time = total_time - ((int(travel_hours))*60 + int(travel_minutes))
 else:
     pass
-#total_time = repr(total_time) + str(" minutes remaining")
+print("")
 
 # ask user how many hours and minutes the user breakfasts a day
 exercise = input("Will you exercise today? ")
@@ -36,7 +36,7 @@ if (exercise == "yes" or exercise == "YES" or exercise == "yES" or exercise == "
     total_time = total_time - ((int(exercise_hours))*60 + int(exercise_minutes))
 else:
     pass
-#total_time = repr(total_time) + str(" minutes remaining")
+print("")
 
 # ask user how many hours and minutes the user eats breakfast a day
 breakfast = input("Will you have breakfast today? ")
@@ -47,6 +47,7 @@ if (breakfast == "yes" or breakfast == "YES" or breakfast == "yES" or breakfast 
     total_time = total_time - ((int(breakfast_hours))*60 + int(breakfast_minutes))
 else:
     pass
+print("")
 
 # ask user how many hours and minutes the user eats lunch a day
 lunch = input("Will you have lunch today? ")
@@ -57,6 +58,7 @@ if (lunch == "yes" or lunch == "YES" or lunch == "yES" or lunch == "Yes"):
     total_time = total_time - ((int(lunch_hours))*60 + int(lunch_minutes))
 else:
     pass
+print("")
 
 # ask user how many hours and minutes the user eats dinner a day
 dinner = input("Will you have dinner today? ")
@@ -67,14 +69,18 @@ if (dinner == "yes" or dinner == "YES" or dinner == "yES" or dinner == "Yes"):
     total_time = total_time - ((int(dinner_hours))*60 + int(dinner_minutes))
 else:
     pass
+print("")
 
 # ask user how many times they will snack today
 try:
     snack = int(input("How many times will you snack today? (Enter an integer): "))
     i = []
+    count = 0
     for i in range(snack):
-        snack_hours = input("Type in how many hours you eat your snack: ")
-        snack_minutes = input("Type the remaining minutes you eat your snack: ")
+        count += 1
+        snack_hours = input("Type in how many hours you eat snack #{}: ".format(count))
+        snack_minutes = input("Type the remaining minutes you eat your snack #{}: ".format(count))
+        print("")
         total_time = total_time - ((int(snack_hours))*60 + int(snack_minutes))
 except ValueError:
     snack = 0
@@ -87,6 +93,7 @@ try:
 except ValueError:
     sleep = 0
     print("Do you even sleep?!")
+print("")
 
 # ask to name any other commitments they have
 other_com = input("Are you going to do anything else today?: ")
@@ -96,6 +103,7 @@ while (other_com == "yes" or other_com == "YES" or other_com == "yES" or other_c
     other_com_minutes = input("Type the remaining minutes you {}: ".format(oc))
     total_time = total_time - ((int(other_com_hours))*60 + int(other_com_minutes))
     other_com = input("Are you going to do anything else today?: ")
+print("")
 
 # print the results
 if (total_time < 0):
